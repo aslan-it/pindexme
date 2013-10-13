@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>pindexme</name>
+	<comment></comment>
+	<projects>
+	</projects>r
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>com.aptana.projectfgsadgsdgsdgs.webnature</nature>
+		<nature>org.radrails.rails.core.railsnature</nature>
+		<nature>com.aptana.ruby.core.rubynature</nature>
+	</natures>
+</projectDescription>
