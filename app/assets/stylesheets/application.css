@@ -12,6 +12,33 @@
  *= require_tree .
  */
 
-.px-container{
-	padding-top:  40px;
-}
+ .px-container{
+ 	position: fixed;
+ 	top:  40px;
+ 	bottom: 40px;
+ 	width: 100%;
+ 	overflow: auto;
+ }
+
+ .px-r-panel{
+ 	width: 348px;
+ 	border-left: 2px solid #333333;
+ 	position: absolute;
+ 	height: 100%;
+ 	right: 0px;
+ }
+
+ .px-c-panel{
+ 	position: absolute;
+ 	right: 350px;
+ 	height: 100%;
+ 	left: 0px
+ }
+
+ .panel-inner{
+ 	position: absolute;
+ 	top: 40px;
+ 	bottom: 0px;
+ 	width: 100%;
+ 	overflow: auto;
+ }
