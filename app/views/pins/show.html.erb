@@ -1,0 +1,6 @@
+<%= @pin.title %>
+<ol>
+  <% for eltext in @pin.eltexts %>
+  <li><%= h eltext.text %></li>
+  <% end %>
+</ol>

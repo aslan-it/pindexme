@@ -42,3 +42,10 @@
  	width: 100%;
  	overflow: auto;
  }
+ @media (max-width: 980px) { 
+ 	.px-container{
+ 		position: inherit;
+
+ 	}
+
+ }
