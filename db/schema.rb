@@ -11,11 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103125124) do
+ActiveRecord::Schema.define(version: 20131104193107) do
+
+  create_table "eltareas", force: true do |t|
+    t.text     "textarea"
+    t.integer  "pin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "eltexts", force: true do |t|
     t.string   "text"
     t.integer  "pin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pincsses", force: true do |t|
+    t.string   "property"
+    t.string   "value"
+    t.integer  "cssable_id"
+    t.string   "cssable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

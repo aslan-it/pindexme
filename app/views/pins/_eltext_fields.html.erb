@@ -4,3 +4,7 @@
   <%= f.check_box :_destroy %>
   <%= f.label :_destroy, "Remove text" %>
 </p>
+
+<%= f.fields_for :pincsses do |pc| %>
+<%= render "pincss_fields", :f => pc %>
+<% end %>

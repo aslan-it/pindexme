@@ -4,9 +4,13 @@
 	<%= f.label :title %><br />
 	<%= f.text_field :title %>
 </p>
- <%= f.fields_for :eltexts do |builder| %>
-    <%= render "eltext_fields", :f => builder %>
-  <% end %>
+<%= f.fields_for :pincsses do |pc| %>
+<%= render "pincss_fields", :f => pc %>
+<% end %>
+
+<%= f.fields_for :eltexts do |builder| %>
+<%= render "eltext_fields", :f => builder %>
+<% end %>
 
 <p><%= f.submit "Submit" %></p>
 <% end %>

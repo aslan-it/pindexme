@@ -1,6 +1,13 @@
 <%= @pin.title %>
-<ol>
-  <% for eltext in @pin.eltexts %>
-  <li><%= h eltext.text %></li>
-  <% end %>
-</ol>
+
+<% for eltext in @pin.eltexts %>
+<li><%= h eltext.text %></li>
+<% for etpc in eltext.pincsses %>
+<li><%= h etpc.property %></li>
+<% end %>
+<% end %>
+
+<% for pincss in @pin.pincsses %>
+<li><%= h pincss.property %></li>
+<% end %>
+
