@@ -17,6 +17,9 @@ format.html # show.html.erb
 format.json { render json: @chancellor }
 end
 end
+def edit
+  @pin = Pin.find(params[:id])
+end
 
 def new
 	@pin = Pin.new
@@ -41,10 +44,27 @@ def create
 	end
 end
 
+def update
+  @pin = Pin.find(params[:id])
+ 
+  if @pin.update(pin_params)
+    redirect_to @pin
+  else
+    render 'edit'
+  end
+end
+
+  def destroy
+    @pin = Pin.find(pin_params)
+    @pin.destroy
+    redirect_to pins_url, notice: "Successfully destroyed pin."
+  end
+
+
 private 
 
 def pin_params
-	params.require(:pin).permit(:title, eltexts_attributes: [ :text, pincsses_attributes:[ :property, :value] ], pincsses_attributes:[ :property, :value])
+	params.require(:pin).permit(:id, :title, eltexts_attributes: [ :id, :text, :_destroy, pincsses_attributes:[:id, :property, :value, :_destroy] ], pincsses_attributes:[ :id,:property, :value, :_destroy])
 end
 
 end

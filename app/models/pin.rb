@@ -1,9 +1,9 @@
 class Pin < ActiveRecord::Base
 	belongs_to :user
-	has_many :eltexts, :dependent => :destroy
-	has_many :eltareas, :dependent => :destroy
-	accepts_nested_attributes_for :eltexts
-	accepts_nested_attributes_for :eltareas
+	has_many :eltexts
+	has_many :eltareas
 	has_many :pincsses, as: :cssable
-	accepts_nested_attributes_for :pincsses
+	accepts_nested_attributes_for :eltexts, allow_destroy: true
+	accepts_nested_attributes_for :eltareas, allow_destroy: true
+	accepts_nested_attributes_for :pincsses, allow_destroy: true
 end

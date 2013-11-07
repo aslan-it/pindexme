@@ -1,6 +1,6 @@
-<p>
-  <%= f.label :property, "property" %><br />
-  <%= f.text_field :property %><br />
-  <%= f.check_box :_destroy %>
-  <%= f.label :_destroy, "Remove text" %>
-</p>
+<fieldset>
+  <%= f.label :property, "property" %>
+  <%= f.text_field :property %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
+</fieldset>

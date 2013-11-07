@@ -1,17 +1,26 @@
-<%= form_for(@pin) do |f| %>
+<%= form_for @pin do |f| %>
+  <% if @pin.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@pin.errors.count, "error") %> prohibited this pin from being saved:</h2>
+      <ul>
+      <% @pin.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<p>
-	<%= f.label :title %><br />
-	<%= f.text_field :title %>
-</p>
-<%= f.fields_for :pincsses do |pc| %>
-<%= render "pincss_fields", :f => pc %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  
+  <%= f.fields_for :eltexts do |builder| %>
+    <%= render 'eltext_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add text", f, :eltexts %>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>
-
-<%= f.fields_for :eltexts do |builder| %>
-<%= render "eltext_fields", :f => builder %>
-<% end %>
-
-<p><%= f.submit "Submit" %></p>
-<% end %>
-
