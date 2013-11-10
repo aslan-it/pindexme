@@ -10,12 +10,13 @@
  *
  *= require_self
  *= require_tree .
+ *= require bootstrap
  */
 
  .px-container{
  	position: fixed;
- 	top:  40px;
- 	bottom: 40px;
+ 	top:  50px;
+ 	bottom: 50px;
  	width: 100%;
  	overflow: auto;
  }
@@ -37,15 +38,27 @@
 
  .panel-inner{
  	position: absolute;
- 	top: 40px;
+ 	top: 50px;
  	bottom: 0px;
  	width: 100%;
  	overflow: auto;
  }
- @media (max-width: 980px) { 
- 	.px-container{
- 		position: inherit;
 
- 	}
-
+ .panel-navbar{
+ 	overflow: auto;
  }
+.navbar-ob{
+	width: 100%;
+}
+
+ /* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) { ... }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) { ... }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) { ... }

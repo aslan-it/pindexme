@@ -32,7 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 # After here startet to adding gems
-gem 'twitter-bootstrap-rails'
+#gem 'twitter-bootstrap-rails'
 gem 'devise'
 
 # Use ActiveModel has_secure_password
