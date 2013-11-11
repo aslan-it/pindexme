@@ -23,9 +23,9 @@ end
 
 def new
 	@pin = Pin.new
-	@pin.pincsses.build
-	eltext=@pin.eltexts.build
-	eltext.pincsses.build
+	#@pin.pincsses.build
+	#eltext=@pin.eltexts.build
+	#eltext.pincsses.build
 
 	respond_to do |format|
 format.html # new.html.erb

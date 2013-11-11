@@ -15,3 +15,19 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+
+
+$( document ).ready(function() {
+// Handler for .ready() called.
+
+
+$( "#r_add_pin_pincsses" ).on( "click", function() {
+	$( "#add_pin_pincsses" ).trigger( "click" );
+});
+
+$( "#r_add_pin_eltexts" ).on( "click", function() {
+	$( "#add_pin_eltexts" ).trigger( "click" );
+});
+
+
+});

@@ -43,13 +43,17 @@
  	width: 100%;
  	overflow: auto;
  }
+ .pi-have-nb{
+ 	bottom: 50px
+ }
 
  .panel-navbar{
  	overflow: auto;
  }
-.navbar-ob{
-	width: 100%;
-}
+ .panel-navbar-bottom{
+ 	position: absolute;
+ 	bottom: 0px;
+ }
 
  /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
