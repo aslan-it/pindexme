@@ -22,7 +22,7 @@
  }
 
  .px-r-panel{
- 	width: 348px;
+ 	width: 298px;
  	border-left: 2px solid #333333;
  	position: absolute;
  	height: 100%;
@@ -31,7 +31,7 @@
 
  .px-c-panel{
  	position: absolute;
- 	right: 350px;
+ 	right: 300px;
  	height: 100%;
  	left: 0px
  }
@@ -44,7 +44,7 @@
  	overflow: auto;
  }
  .pi-have-nb{
- 	bottom: 50px
+ 	bottom: 52px
  }
 
  .panel-navbar{
@@ -53,6 +53,10 @@
  .panel-navbar-bottom{
  	position: absolute;
  	bottom: 0px;
+ 	width: 100%
+ }
+ #px-navbar-bottom{
+ 	margin-bottom: 0px;
  }
 
  /* Extra small devices (phones, less than 768px) */
