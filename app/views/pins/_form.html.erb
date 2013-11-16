@@ -12,8 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title, :class=>"test_12" %>
+    <%= f.label :title %>
+    <%= f.text_field :title, :class=>"test_12" %><br />
+    <%= f.label :width %>
+    <%= f.text_field :width%><br />
+    <%= f.label :height %>
+    <%= f.text_field :height%><br />
+    <%= f.label :status %>
+    <%= f.text_field :status%>
+
     <%= f.fields_for :pincsses do |builder| %>
     <%= render 'pincss_fields', f: builder %>
     <% end %>
@@ -26,7 +33,7 @@
   <%= link_to_add_fields "Add text", f, :eltexts, "add_pin_eltexts" %>
 
   <div class="actions">
-    <%= f.submit :class=>"px-real-submit"%>
+    <%= f.submit :class=>"px-real-submit hidden"  %>
   </div>
   <% end %>
 </div>

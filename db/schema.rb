@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131104193107) do
+ActiveRecord::Schema.define(version: 20131116154112) do
 
   create_table "eltareas", force: true do |t|
     t.text     "textarea"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20131104193107) do
     t.integer  "pin_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "formcsses", force: true do |t|
+    t.integer  "top"
+    t.integer  "left"
+    t.integer  "width"
+    t.integer  "height"
+    t.integer  "transform"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "formcssable_id"
+    t.string   "formcssable_type"
   end
 
   create_table "pincsses", force: true do |t|
@@ -41,6 +53,9 @@ ActiveRecord::Schema.define(version: 20131104193107) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "status"
+    t.integer  "width"
+    t.integer  "height"
   end
 
   create_table "users", force: true do |t|
