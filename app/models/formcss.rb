@@ -1,3 +1,3 @@
 class Formcss < ActiveRecord::Base
-	belongs_to :eltext
+	belongs_to :formcssable, polymorphic: true
 end

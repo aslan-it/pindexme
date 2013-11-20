@@ -24,8 +24,9 @@ end
 def new
 	@pin = Pin.new
 	#@pin.pincsses.build
-	#eltext=@pin.eltexts.build
+	#@eltext=@pin.eltexts.build
 	#eltext.pincsses.build
+	#@eltext.build_formcss
 
 	respond_to do |format|
 format.html # new.html.erb
@@ -63,8 +64,9 @@ end
 
 private 
 
+
 def pin_params
-	params.require(:pin).permit(:id, :title, eltexts_attributes: [ :id, :text, :_destroy, pincsses_attributes:[:id, :property, :value, :_destroy] ], pincsses_attributes:[ :id,:property, :value, :_destroy])
+	params.require(:pin).permit(:id, :title, :width,:height,:status, eltexts_attributes: [ :id, :text, :_destroy, formcss_attributes:[ :top, :left,:width,:height], pincsses_attributes:[:id, :property, :value, :_destroy] ], pincsses_attributes:[ :id,:property, :value, :_destroy])
 end
 
 end

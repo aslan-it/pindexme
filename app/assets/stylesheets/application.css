@@ -58,6 +58,17 @@
  #px-navbar-bottom{
  	margin-bottom: 0px;
  }
+ #element-settings-cl{
+ 	padding: 4px;
+ 	overflow-x:hidden;
+ }
+
+ #new_pin fieldset{
+ 	position: absolute;
+ }
+.px-eltext-field{
+
+}
 
  /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */

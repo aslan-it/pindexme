@@ -1,11 +1,17 @@
 
-<fieldset>
-  <%= f.label :text, "text" %><br />
+<fieldset class="px-eltext-field">
   <%= f.text_field :text %><br />
   <%= f.hidden_field :_destroy %>
   <%= link_to "remove", '#', class: "remove_fields" %>
   <%= f.fields_for :pincsses do |builder| %>
-    <%= render 'pincss_fields', f: builder %>
+  <%= render 'pincss_fields', f: builder %>
+  <% end %>
+
+  <% f.object.build_formcss %>
+ 
+  <%= f.fields_for :formcss do |builder| %>
+  <%= render 'formcss_fields', f: builder %>
   <% end %>
   <%= link_to_add_fields "Add pincsses", f, :pincsses, "add_pin_eltext_pincsses" %>
+
 </fieldset>
