@@ -22,10 +22,10 @@ jQuery(function($) {
 		// 	default:
 		// 	return ;
 		// }
-	
+		
 	});
-		
-		
+	
+	
 
 
 
@@ -41,14 +41,18 @@ jQuery(function($) {
 
 
 
-
-
-
 	$(".px-remote-submit").click(function(){
 		$(".px-real-submit").trigger("click");
 
 	})
 	$("#pin_creator_area").trigger("click");
+
+
+
+	$("#pin_creator_area").on("mouseover",function(){
+		$("fieldset").draggable();
+	})
+	
 
 });
 
