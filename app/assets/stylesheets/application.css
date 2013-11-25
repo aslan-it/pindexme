@@ -69,6 +69,23 @@
 .px-eltext-field{
 
 }
+#pin_creator_area{
+	width: 600px;
+	height: 800px;
+	border: 2px solid #333333;
+	background-image:url('px-m.png');
+	background-repeat:repeat;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	position: absolute;
+	z-index: 0;
+}
+fieldset{
+	z-index: 1;
+}
 
  /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */

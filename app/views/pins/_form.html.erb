@@ -36,7 +36,7 @@
           <div class='form-group'>
             <%= f.label :width %>
             <div class="input-group">
-              <%= f.text_field :width,:class=>"form-control"%>
+              <%= f.text_field :width,:class=>"form-control px-pin-size"%>
               <span class="input-group-addon">px</span>
             </div>
           </div>
@@ -45,38 +45,41 @@
           <div class='form-group'>
             <%= f.label :height %>
             <div class="input-group">
-              <%= f.text_field :height,:class=>"form-control"%>
+              <%= f.text_field :height,:class=>"form-control px-pin-size"%>
               <span class="input-group-addon">px</span>
             </div>
           </div>
         </div>
 
       </div>
+
       <div class='row'>
         <div class='col-sm-12'>
           <div class='form-group'>
             <%= f.label :status %>
-            <select class="form-control" id="user_locale" name="user[locale]"><option value="de" selected="selected">Publich</option>
-              <option value="en">Privat</option></select>
-            </div>
+            <%= f.select(:status, [['Public', 1], ['Privat', 2]],{},{:class=>"form-control"}) %>
+            
           </div>
         </div>
-      </fieldset>
+      </div>
 
 
-      <%= f.fields_for :pincsses do |builder| %>
-      <%= render 'pincss_fields', f: builder %>
-      <% end %>
-    </div>
-    <%= link_to_add_fields "Pincsses", f, :pincsses, "add_pin_pincsses" %>
+    </fieldset>
 
-    <%= f.fields_for :eltexts do |builder| %>
-    <%= render 'eltext_fields', f: builder %>
-    <% end %>
-    <%= link_to_add_fields "Add text", f, :eltexts, "add_pin_eltexts" %>
 
-    <div class="actions">
-      <%= f.submit :class=>"px-real-submit hidden"  %>
-    </div>
+    <%= f.fields_for :pincsses do |builder| %>
+    <%= render 'pincss_fields', f: builder %>
     <% end %>
   </div>
+  <%= link_to_add_fields "Pincsses", f, :pincsses, "add_pin_pincsses" %>
+
+  <%= f.fields_for :eltexts do |builder| %>
+  <%= render 'eltext_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add text", f, :eltexts, "add_pin_eltexts" %>
+
+  <div class="actions">
+    <%= f.submit :class=>"px-real-submit hidden"  %>
+  </div>
+  <% end %>
+</div>
