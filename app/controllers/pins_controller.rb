@@ -1,4 +1,6 @@
 class PinsController < ApplicationController
+#	load_and_authorize_resource
+before_filter :authenticate_user!
 	def index
 
 		@pin = Pin.all
@@ -23,6 +25,7 @@ end
 
 def new
 	@pin = Pin.new
+	authorize! :new, @pin, :message => 'Not authorized as an administrator.'
 	#@pin.pincsses.build
 	#@eltext=@pin.eltexts.build
 	#eltext.pincsses.build
@@ -35,7 +38,7 @@ end
 end
 
 def create
-	@pin = Pin.new(pin_params)
+	@pin = current_user.pins.new(pin_params)
 	if @pin.save
 		redirect_to @pin
 		#format.json { render json: @pin, status: :created, location: @pin }
