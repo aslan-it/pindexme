@@ -1,10 +1,35 @@
 <fieldset class="px-formcss-field hidden">
-  <%= f.label :left, "X" %>
-  <%= f.text_field :left %>
-  <%= f.label :top, "Y" %>
-  <%= f.text_field :top %>
-  <%= f.label :width, "W" %>
-  <%= f.text_field :width %>
-  <%= f.label :height, "H" %>
-  <%= f.text_field :height %>
+	<legend>Form Settings</legend>
+	<div class='row'>
+		<div class='col-sm-12'>
+			<div class='form-group'>
+				<%= f.label :left,:for=>"pin_title"%>
+				<%= f.text_field :left,:class=>"form-control"  %>
+			</div>
+		</div>
+	</div>
+	<div class='row'>
+		<div class='col-sm-12'>
+			<div class='form-group'>
+				<%= f.label :top,:for=>"pin_title"%>
+				<%= f.text_field :top,:class=>"form-control"  %>
+			</div>
+		</div>
+	</div>
+	<div class='row'>
+		<div class='col-sm-12'>
+			<div class='form-group'>
+				<%= f.label :width,:for=>"pin_title"%>
+				<%= f.text_field :width,:class=>"form-control"  %>
+			</div>
+		</div>
+	</div>
+	<div class='row'>
+		<div class='col-sm-12'>
+			<div class='form-group'>
+				<%= f.label :height,:for=>"pin_title"%>
+				<%= f.text_field :height,:class=>"form-control"  %>
+			</div>
+		</div>
+	</div>
 </fieldset>

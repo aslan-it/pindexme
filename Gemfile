@@ -38,6 +38,7 @@ gem 'devise'
 
 gem 'railroady', group: [:development, :test]
 gem 'rails_12factor', group: :production
+gem 'cancan'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
