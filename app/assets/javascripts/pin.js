@@ -54,8 +54,19 @@ $(".px-remote-submit").click(function(){
 })
 
 
+	 $("fieldset").resizable();
 $("#pin_creator_area").on("mouseover",function(){
-	$("fieldset").draggable();
+
+	 $("fieldset").resizable();
+	$("fieldset").draggable({
+		drag: function(){
+            var position = $(this).position();
+            var xPos = position.left;
+            var yPos = position.top;
+            $(this).find('.px-el-p-left').val(xPos);
+            $(this).find('.px-el-p-top').val(yPos);
+        }
+	});
 
 	$(this).find("fieldset").on({
 		mouseenter: function () {
@@ -68,6 +79,8 @@ $("#pin_creator_area").on("mouseover",function(){
 
 
 	});
+
+
 
 })
 

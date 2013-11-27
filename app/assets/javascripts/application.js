@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
-
+//= require jquery.ui.all
 
 $( document ).ready(function() {
 // Handler for .ready() called.

@@ -1,5 +1,5 @@
 <div id="pin_creator_area">
-  <%= form_for @pin do |f| %>
+  <%= form_for @pin,:html => {:multipart => true}  do |f| %>
   <% if @pin.errors.any? %>
   <div class="error_messages">
     <h2><%= pluralize(@pin.errors.count, "error") %> prohibited this pin from being saved:</h2>
@@ -77,6 +77,11 @@
   <%= render 'eltext_fields', f: builder %>
   <% end %>
   <%= link_to_add_fields "Add text", f, :eltexts, "add_pin_eltexts" %>
+
+  <%= f.fields_for :pinimages do |builder| %>
+  <%= render 'pinimage_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add text", f, :pinimages, "add_pin_pinimages" %>
 
   <div class="actions">
     <%= f.submit :class=>"px-real-submit hidden"  %>
