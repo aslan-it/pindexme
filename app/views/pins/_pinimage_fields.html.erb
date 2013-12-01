@@ -8,4 +8,10 @@
   <p>
     <%= f.file_field :image %>
   </p>
+
+    <% f.object.build_formcss %>
+ 
+  <%= f.fields_for :formcss do |builder| %>
+  <%= render 'formcss_fields', f: builder %>
+  <% end %>
 </fieldset>

@@ -17,74 +17,80 @@
       <div class='row'>
         <div class='col-sm-12'>
           <div class='form-group'>
-           <%= f.label :title,:for=>"pin_title"%>
-           <%= f.text_field :title,:class=>"form-control"  %>
-         </div>
-       </div>
-     </div>
-     <div class='row'>
-      <div class='col-sm-12'>
-        <div class='form-group'>
-          <label for="user_locale">Form</label>
-          <select class="form-control" id="user_locale" name="user[locale]"><option value="de" selected="selected">A1</option>
-            <option value="en">A2</option></select>
+            <%= f.label :title,:for=>"pin_title"%>
+            <%= f.text_field :title,:class=>"form-control"  %>
           </div>
         </div>
       </div>
-      <div class='row'>
-        <div class='col-sm-6'>
-          <div class='form-group'>
-            <%= f.label :width %>
-            <div class="input-group">
-              <%= f.text_field :width,:class=>"form-control px-pin-size"%>
-              <span class="input-group-addon">px</span>
-            </div>
-          </div>
-        </div>
-        <div class='col-sm-6'>
-          <div class='form-group'>
-            <%= f.label :height %>
-            <div class="input-group">
-              <%= f.text_field :height,:class=>"form-control px-pin-size"%>
-              <span class="input-group-addon">px</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
       <div class='row'>
         <div class='col-sm-12'>
           <div class='form-group'>
-            <%= f.label :status %>
-            <%= f.select(:status, [['Public', 1], ['Privat', 2]],{},{:class=>"form-control"}) %>
-            
+            <label for="user_locale">Form</label>
+            <select class="form-control" id="user_locale" name="user[locale]"><option value="de" selected="selected">A1</option>
+              <option value="en">A2</option></select>
+            </div>
           </div>
         </div>
-      </div>
+        <div class='row'>
+          <div class='col-sm-6'>
+            <div class='form-group'>
+              <%= f.label :width %>
+              <div class="input-group">
+                <%= f.text_field :width,:class=>"form-control px-pin-size"%>
+                <span class="input-group-addon">px</span>
+              </div>
+            </div>
+          </div>
+          <div class='col-sm-6'>
+            <div class='form-group'>
+              <%= f.label :height %>
+              <div class="input-group">
+                <%= f.text_field :height,:class=>"form-control px-pin-size"%>
+                <span class="input-group-addon">px</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class='row'>
+          <div class='col-sm-12'>
+            <div class='form-group'>
+              <%= f.label :status %>
+              <%= f.select(:status, [['Public', 1], ['Privat', 2]],{},{:class=>"form-control"}) %>
+
+            </div>
+          </div>
+        </div>
 
 
-    </fieldset>
+      </fieldset>
 
 
-    <%= f.fields_for :pincsses do |builder| %>
-    <%= render 'pincss_fields', f: builder %>
+      <%= f.fields_for :pincsses do |builder| %>
+      <%= render 'pincss_fields', f: builder %>
+      <% end %>
+
+    </div>
+    <%= link_to_add_fields "Pincsses", f, :pincsses, "add_pin_pincsses" %>
+
+    <%= f.fields_for :eltexts do |builder| %>
+    <%= render 'eltext_fields', f: builder %>
+    <% end %>
+    <%= link_to_add_fields "Add text", f, :eltexts, "add_pin_eltexts" %>
+
+    <%= f.fields_for :eltareas do |builder| %>
+    <%= render 'eltarea_fields', f: builder %>
+    <% end %>
+    <%= link_to_add_fields "Add textarea", f, :eltareas, "add_pin_eltareas" %>
+
+    <%= f.fields_for :pinimages do |builder| %>
+    <%= render 'pinimage_fields', f: builder %>
+    <% end %>
+    <%= link_to_add_fields "Add text", f, :pinimages, "add_pin_pinimages" %>
+
+    <div class="actions">
+      <%= f.submit :class=>"px-real-submit hidden"  %>
+    </div>
     <% end %>
   </div>
-  <%= link_to_add_fields "Pincsses", f, :pincsses, "add_pin_pincsses" %>
-
-  <%= f.fields_for :eltexts do |builder| %>
-  <%= render 'eltext_fields', f: builder %>
-  <% end %>
-  <%= link_to_add_fields "Add text", f, :eltexts, "add_pin_eltexts" %>
-
-  <%= f.fields_for :pinimages do |builder| %>
-  <%= render 'pinimage_fields', f: builder %>
-  <% end %>
-  <%= link_to_add_fields "Add text", f, :pinimages, "add_pin_pinimages" %>
-
-  <div class="actions">
-    <%= f.submit :class=>"px-real-submit hidden"  %>
-  </div>
-  <% end %>
-</div>

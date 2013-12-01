@@ -1,14 +1,19 @@
 
 <fieldset class="px-eltext-field">
+    <%= button_tag(type: "button", class: "remove_fields btn btn-default btn-xs px-el-remove") do %><i class="glyphicon glyphicon-remove"></i>
+  <% end %>
   <%= f.text_field :text %><br />
   <%= f.hidden_field :_destroy %>
-  <%= link_to "remove", '#', class: "remove_fields" %>
+  <%#= link_to "remove", '#', class: "remove_fields" %>
+
+
+
   <%= f.fields_for :pincsses do |builder| %>
   <%= render 'pincss_fields', f: builder %>
   <% end %>
 
   <% f.object.build_formcss %>
- 
+
   <%= f.fields_for :formcss do |builder| %>
   <%= render 'formcss_fields', f: builder %>
   <% end %>

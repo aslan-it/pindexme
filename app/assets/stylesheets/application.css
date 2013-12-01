@@ -84,8 +84,13 @@
 	position: absolute;
 	z-index: 0;
 }
+
+.px-el-remove{
+	position: absolute;
+}
 fieldset{
 	z-index: 1;
+	position: absolute;
 }
 
  /* Extra small devices (phones, less than 768px) */

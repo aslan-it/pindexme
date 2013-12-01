@@ -5,6 +5,6 @@ module ApplicationHelper
 		fields = f.fields_for(association, new_object, child_index: nid) do |builder|
 			render(association.to_s.singularize + "_fields", f: builder)
 		end
-		link_to(name, '#', id:id ,class: "add_fields shidden", data: {id: nid, fields: fields.gsub("\n", "")})
+		link_to(name, '#', id:id ,class: "add_fields hidden", data: {id: nid, fields: fields.gsub("\n", "")})
 	end
 end

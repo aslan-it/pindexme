@@ -17,7 +17,7 @@
 <div id="paintings">
   <% @pin.pinimages.each do |painting| %>
     <div class="painting">
-      <%= image_tag painting.image_url.to_s %>
+      <%= image_tag painting.image_url(:thumb).to_s %>
       <div class="name"><%= painting.title %></div>
       <div class="actions">
         <%#= link_to "edit", edit_painting_path(painting) %> |

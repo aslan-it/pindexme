@@ -1,77 +1,88 @@
 <%#= javascript_include_tag "pin" %>
+<%= tinymce_assets %> 
 
 <div class="row">
 	<div class="px-c-panel">
 
 		<div class="panel-navbar">
-			<nav class="navbar navbar-default" role="navigation">
-				
+			<nav class="navbar navbar-default" role="navigation" id="px-add-el-nav">
+
 				<ul class="nav navbar-nav">
-					<li><%= button_to "Text", "#",:id=>"r_add_pin_eltexts",:class=>"btn btn-default navbar-btn",:remote => true,:method => "get"%></li>
-					<li><%= button_to "Textarea", "#",:class=>"btn btn-default navbar-btn",:remote => true,:method => "get"%></li>
-					<li><%= button_to "Shapes", "#",:class=>"btn btn-default navbar-btn",:remote => true,:method => "get"%></li>
-					<li><%= button_to "Image", "#",:class=>"btn btn-default navbar-btn",:remote => true,:method => "get"%></li>
-					<li><%= button_to "QR", "#",:class=>"btn btn-default navbar-btn",:remote => true,:method => "get"%></li>
-					
-				</ul>
-
-			</nav>
-
-		</div>
-		<div class="panel-inner pi-have-nb">
-
-			<%= render "form" %>
-
-		</div>
-
-		<div class="panel-navbar-bottom">
-			<nav id="px-navbar-bottom" class="navbar navbar-default" role="navigation">
-				<div class="navbar-left">
-
-					<div class="btn-group dropup navbar-btn">
-						<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
-						<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
-
+					<li>
 						<div class="btn-group">
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-								100%
-								<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#">75%</a></li>
-								<li><a href="#">25%</a></li>
-							</ul>
+							<%= button_tag(type: "button",id:"r_add_pin_eltexts", class: "btn btn-default navbar-btn") do %><i class="glyphicon glyphicon-text-width"></i>
+							<% end %>
+							<%= button_tag(type: "button",id:"r_add_pin_eltareas", class: "btn btn-default navbar-btn") do %><i class="glyphicon glyphicon-text-height"></i>
+							<% end %>
+							<%= button_tag(type: "button",id:"r_add_pin_pinimages", class: "btn btn-default navbar-btn") do %><i class="glyphicon glyphicon-picture"></i>
+							<% end %>
+							<%= button_tag(type: "button",id:"r_add_pin_qr", class: "btn btn-default navbar-btn") do %><i class="glyphicon glyphicon-qrcode"></i>
+							<% end %>
+							<%= button_tag(type: "button",id:"r_add_pin_file", class: "btn btn-default navbar-btn") do %><i class="glyphicon glyphicon-paperclip"></i>
+							<% end %>
 						</div>
+					</li>
+
+
+					</ul>
+
+				</nav>
+
+			</div>
+			<div class="panel-inner pi-have-nb">
+
+				<%= render "form" %>
+
+			</div>
+
+			<div class="panel-navbar-bottom">
+				<nav id="px-navbar-bottom" class="navbar navbar-default" role="navigation">
+					<div class="navbar-left">
+
+						<div class="btn-group dropup navbar-btn">
+							<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+							<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
+
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+									100%
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">75%</a></li>
+									<li><a href="#">25%</a></li>
+								</ul>
+							</div>
+						</div>
+
+
 					</div>
 
 
+
+					<div class="navbar-right">
+						<button type="button" class="btn btn-primary navbar-btn px-remote-submit">Create</button>
+
+
+					</div>
 				</div>
+			</nav>
 
+		</div>
 
-				
-				<div class="navbar-right">
-					<button type="button" class="btn btn-primary navbar-btn px-remote-submit">Create</button>
-
-
-				</div>
-			</div>
-		</nav>
 
 	</div>
+	<div class="px-r-panel">
 
+		<div class="panel-navbar">
+			<nav class="navbar navbar-default" role="navigation">
+				<h4>Setting Panel</h4>
+			</nav>
+		</div>
+		<div id="element-settings-cl" class="panel-inner">
 
-</div>
-<div class="px-r-panel">
+		</div>
 
-	<div class="panel-navbar">
-		<nav class="navbar navbar-default" role="navigation">
-			<h4>Setting Panel</h4>
-		</nav>
 	</div>
-	<div id="element-settings-cl" class="panel-inner">
-
-	</div>
-
-</div>
 
 </div><!--/span-->

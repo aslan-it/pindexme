@@ -1,0 +1,35 @@
+
+<fieldset class="px-eltarea-field">
+  <div class="px-editable-tarea" style="width:100%; height:100%">ASLAN</div>
+  <%= f.hidden_field :textarea, :class => "" %><br />
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
+  <%= f.fields_for :pincsses do |builder| %>
+  <%= render 'pincss_fields', f: builder %>
+  <% end %>
+
+  <% f.object.build_formcss %>
+
+  <%= f.fields_for :formcss do |builder| %>
+  <%= render 'formcss_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add pincsses", f, :pincsses, "add_pin_eltext_pincsses" %>
+
+</fieldset>
+
+<script type="text/javascript">
+tinymce.init({
+
+  selector: ".px-eltarea-field",
+  inline: true,
+  toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify |  bullist numlist | outdent indent ",
+  toolbar2: "link image",
+  menubar: false,
+  statusbar : false,
+  plugins: [
+  "link image"
+  ],
+
+
+});
+</script>

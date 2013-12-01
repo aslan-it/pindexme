@@ -41,6 +41,8 @@ gem 'rails_12factor', group: :production
 gem 'cancan'
 gem 'jquery-ui-rails'
 gem 'carrierwave'
+gem "mini_magick"
+gem 'tinymce-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

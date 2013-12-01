@@ -69,7 +69,7 @@ private
 
 
 def pin_params
-	params.require(:pin).permit(:id, :title, :width,:height,:status, pinimages_attributes: [:id, :title, :image, :_destroy ] ,eltexts_attributes: [ :id, :text, :_destroy, formcss_attributes:[ :top, :left,:width,:height], pincsses_attributes:[:id, :property, :value, :_destroy] ], pincsses_attributes:[ :id,:property, :value, :_destroy])
+	params.require(:pin).permit(:id, :title, :width,:height,:status, pinimages_attributes: [:id, :title, :image, :_destroy ] ,eltexts_attributes: [ :id, :text, :_destroy, formcss_attributes:[ :top, :left,:width,:height], pincsses_attributes:[:id, :property, :value, :_destroy] ], pincsses_attributes:[ :id,:property, :value, :_destroy], eltareas_attributes:[ :id,:textarea,:_destroy])
 end
 
 end

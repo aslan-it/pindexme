@@ -1,0 +1,10 @@
+default:
+  plugins:
+    - image
+    - link
+
+alternate:
+  selector: textarea
+  toolbar: styleselect | bold italic | link image | undo redo | table
+  plugins:
+    - table
