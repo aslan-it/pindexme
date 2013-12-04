@@ -1,9 +1,16 @@
 
 <fieldset class="px-eltarea-field">
-  <div class="px-editable-tarea" style="width:100%; height:100%">ASLAN</div>
+
+  <%= button_tag(type: "button", class: "remove_fields btn btn-default btn-xs px-el-remove") do %><i class="glyphicon glyphicon-remove"></i>
+  <% end %>
+  <%#= link_to "remove", '#', class: "remove_fields" %>
+  <div class="px-editable-tarea" style="width:auto; height:auto" data-placeholder='Enter some text' contenteditable='true'></div>
   <%= f.hidden_field :textarea, :class => "" %><br />
   <%= f.hidden_field :_destroy %>
-  <%= link_to "remove", '#', class: "remove_fields" %>
+
+
+
+
   <%= f.fields_for :pincsses do |builder| %>
   <%= render 'pincss_fields', f: builder %>
   <% end %>
@@ -20,7 +27,7 @@
 <script type="text/javascript">
 tinymce.init({
 
-  selector: ".px-eltarea-field",
+  selector: ".px-editable-tarea",
   inline: true,
   toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify |  bullist numlist | outdent indent ",
   toolbar2: "link image",

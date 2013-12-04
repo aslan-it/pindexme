@@ -1,16 +1,24 @@
 
-<fieldset class="px-image-field">
+<fieldset class="px-image-field px-img-drop-area">
   <%#= f.hidden_field :gallery_id %>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.file_field :image %>
-  </p>
+  <%= button_tag(type: "button", class: "btn btn-default btn px-r-add-img") do %><i class="glyphicon glyphicon-picture"></i> Click to add Image
+  <% end %>
 
-    <% f.object.build_formcss %>
- 
+  <%= button_tag(type: "button", class: "remove_fields btn btn-default btn-xs px-el-remove") do %><i class="glyphicon glyphicon-remove"></i>
+  <% end %>
+  <div class="px-img-attr hidden">
+    <p>
+      <%= f.label :title %><br />
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.file_field :image, :class=>"px-add-img-file"%>
+    </p>
+  </div>
+  
+
+  <% f.object.build_formcss %>
+
   <%= f.fields_for :formcss do |builder| %>
   <%= render 'formcss_fields', f: builder %>
   <% end %>
