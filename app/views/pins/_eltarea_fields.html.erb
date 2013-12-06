@@ -4,8 +4,8 @@
   <%= button_tag(type: "button", class: "remove_fields btn btn-default btn-xs px-el-remove") do %><i class="glyphicon glyphicon-remove"></i>
   <% end %>
   <%#= link_to "remove", '#', class: "remove_fields" %>
-  <div class="px-editable-tarea" style="width:auto; height:auto" data-placeholder='Enter some text' contenteditable='true'></div>
-  <%= f.hidden_field :textarea, :class => "" %><br />
+  <div class="px-editable-tarea px-resizable-el" style="width:auto; height:auto" data-placeholder='Enter some text' contenteditable='true'></div>
+  <%= f.text_field :textarea, :class => "px-eltarea-hidden-field" %><br />
   <%= f.hidden_field :_destroy %>
 
 

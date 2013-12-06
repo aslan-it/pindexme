@@ -10,16 +10,21 @@
 				<ul class="nav navbar-nav">
 					<li>
 						<div class="btn-group">
-							<%= button_tag(type: "button",id:"r_add_pin_eltexts", class: "btn btn-default navbar-btn") do %><i class="glyphicon glyphicon-text-width"></i>
+							<%= button_tag(type: "button",id:"r_add_pin_eltexts", class: "btn btn-default navbar-btn",:'data-toggle'=>"tooltip",:title=>"Add Text") do %><i class="glyphicon glyphicon-text-width"></i>
 							<% end %>
-							<%= button_tag(type: "button",id:"r_add_pin_eltareas", class: "btn btn-default navbar-btn") do %><i class="glyphicon glyphicon-text-height"></i>
+							<%= button_tag(type: "button",id:"r_add_pin_eltareas", class: "btn btn-default navbar-btn",:'data-toggle'=>"tooltip",:title=>"Add Textarea") do %><i class="glyphicon glyphicon-text-height"></i>
 							<% end %>
-							<%= button_tag(type: "button",id:"r_add_pin_pinimages", class: "btn btn-default navbar-btn") do %><i class="glyphicon glyphicon-picture"></i>
+							<%= button_tag(type: "button",id:"r_add_pin_pinimages", class: "btn btn-default navbar-btn",:'data-toggle'=>"tooltip",:title=>"Add Image") do %><i class="glyphicon glyphicon-picture"></i>
 							<% end %>
-							<%= button_tag(type: "button",id:"r_add_pin_qr", class: "btn btn-default navbar-btn") do %><i class="glyphicon glyphicon-qrcode"></i>
+							<%= button_tag(type: "button",id:"r_add_pin_qr", class: "btn btn-default navbar-btn",:'data-toggle'=>"tooltip",:title=>"Add Qrcode") do %><i class="glyphicon glyphicon-qrcode"></i>
 							<% end %>
 							<%= button_tag(type: "button",id:"r_add_pin_file", class: "btn btn-default navbar-btn") do %><i class="glyphicon glyphicon-paperclip"></i>
 							<% end %>
+							<%= button_tag(type: "button",id:"r_add_pin_file", class: "btn btn-default navbar-btn") do %><i class="glyphicon glyphicon-bookmark"></i>
+							<% end %>
+							<%= button_tag(type: "button",id:"r_add_pin_file", class: "btn btn-default navbar-btn") do %><i class="glyphicon glyphicon-info-sign"></i>
+							<% end %>
+
 						</div>
 					</li>
 
@@ -76,7 +81,7 @@
 
 		<div class="panel-navbar">
 			<nav class="navbar navbar-default" role="navigation">
-				<h4>Setting Panel</h4>
+				<h4 class="navbar-text">Pin Settings Panel</h4>
 			</nav>
 		</div>
 		<div id="element-settings-cl" class="panel-inner">

@@ -1,33 +1,102 @@
-<%= @pin.title %>
+<div class="row">
+  <div class="px-c-panel">
 
-<% for eltext in @pin.eltexts %>
-<% for pincss in @pin.pincsses %>
-<li><%= h pincss.property %></li>
-<% end %>
-<li><%= h eltext.text %></li>
-<% for etpc in eltext.pincsses %>
-<li><%= h etpc.property %></li>
-<% end %>
-<% end %>
+    <div class="panel-navbar">
+      <nav class="navbar navbar-default" role="navigation" id="px-add-el-nav">
 
+        <ul class="nav navbar-nav">
+          <li>
+            <div class="btn-group">
+              <%= button_tag(type: "button",id:"r_add_pin_eltexts", class: "btn btn-default navbar-btn",:'data-toggle'=>"tooltip",:title=>"Add Text") do %><i class="glyphicon glyphicon-text-width"></i>
+              <% end %>
 
+            </div>
+          </li>
+        </ul>
+      </nav>
 
-
-
-<div id="paintings">
-  <% @pin.pinimages.each do |painting| %>
-    <div class="painting">
-      <%= image_tag painting.image_url(:thumb).to_s %>
-      <div class="name"><%= painting.title %></div>
-      <div class="actions">
-        <%#= link_to "edit", edit_painting_path(painting) %> |
-        <%#= link_to "remove", painting, :confirm => 'Are you sure?', :method => :delete %>
-      </div>
     </div>
-  <% end %>
-  <div class="clear"></div>
-</div>
+    <div class="panel-inner pi-have-nb">
+
+      <%= @pin.title %>
+
+      <%= @pin.width %>
+      <%= @pin.height %>
+
+      <% for eltarea in @pin.eltareas %>
+
+      <%= eltarea.textarea.html_safe %>
+      <%= eltarea.formcss.top %>
+      <%= eltarea.formcss.left %>
+      <%= eltarea.formcss.width %>
+      <%= eltarea.formcss.height %>
+
+      <% end %>
+
+
+      <% @pin.pinimages.each do |pinimage| %>
+
+      <%= image_tag pinimage.image_url(:thumb).to_s %>
+      <%= pinimage.title %>
+
+      <% end %>
 
 
 
-<%= link_to "edit", edit_pin_path%>
+
+      <%= link_to "edit", edit_pin_path%>
+    </div>
+
+    <div class="panel-navbar-bottom">
+      <nav id="px-navbar-bottom" class="navbar navbar-default" role="navigation">
+        <div class="navbar-left">
+
+          <div class="btn-group dropup navbar-btn">
+            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                100%
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#">75%</a></li>
+                <li><a href="#">25%</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="navbar-right">
+
+          <div class="btn-group dropup navbar-btn">
+            <button type="button" class="btn btn-primary  dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-download-alt"></span>
+              Download
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">PNG</a></li>
+              <li><a href="#">SVG</a></li>
+              <li><a href="#">PDF</a></li>
+            </ul>
+          </div>    
+        </div>
+      </nav>
+
+    </div>
+  </div>
+  <div class="px-r-panel">
+
+    <div class="panel-navbar">
+      <nav class="navbar navbar-default" role="navigation">
+        <h4 class="navbar-text">Pin Settings</h4>
+      </nav>
+    </div>
+    <div id="element-settings-cl" class="panel-inner">
+
+    </div>
+
+  </div>
+
+</div><!--/span-->
