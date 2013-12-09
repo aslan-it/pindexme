@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag  pin_path :format=>"css" %>
 <div class="row">
   <div class="px-c-panel">
 
@@ -18,33 +19,41 @@
     </div>
     <div class="panel-inner pi-have-nb">
 
-      <%= @pin.title %>
+      <div class="px-pin-setting">
+        <%#= @pin.title %>
 
-      <%= @pin.width %>
-      <%= @pin.height %>
+        <%#= @pin.width %>
+        <%#= @pin.height %>
 
-      <% for eltarea in @pin.eltareas %>
+        <% for eltarea in @pin.eltareas %>
 
-      <%= eltarea.textarea.html_safe %>
-      <%= eltarea.formcss.top %>
-      <%= eltarea.formcss.left %>
-      <%= eltarea.formcss.width %>
-      <%= eltarea.formcss.height %>
+        <%= eltarea.textarea.html_safe %>
+        <%= eltarea.formcss.top %>
+        <%= eltarea.formcss.left %>
+        <%= eltarea.formcss.width %>
+        <%= eltarea.formcss.height %>
 
-      <% end %>
-
-
-      <% @pin.pinimages.each do |pinimage| %>
-
-      <%= image_tag pinimage.image_url(:thumb).to_s %>
-      <%= pinimage.title %>
-
-      <% end %>
+        <% end %>
 
 
 
+        <% @pin.pinimages.each do |pinimage| %>
+        <div id='img_<%= pinimage.id %>' >
+          <%= image_tag pinimage.image_url.to_s %>
+        </div>
 
-      <%= link_to "edit", edit_pin_path%>
+
+        <% end %>
+
+      </div>
+
+
+
+
+
+
+
+      <%#= link_to "edit", edit_pin_path%>
     </div>
 
     <div class="panel-navbar-bottom">

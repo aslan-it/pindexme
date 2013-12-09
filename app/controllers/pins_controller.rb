@@ -1,11 +1,11 @@
 class PinsController < ApplicationController
 #	load_and_authorize_resource
 before_filter :authenticate_user!
-	def index
+def index
 
-		@pin = Pin.all
+	@pin = Pin.all
 
-		respond_to do |format|
+	respond_to do |format|
 format.html # index.html.erb
 format.json { render json: @pins }
 end
@@ -16,11 +16,12 @@ def show
 
 	respond_to do |format|
 format.html # show.html.erb
-format.json { render json: @chancellor }
+format.json { render json: @pin }
+format.css { render css: @pin, :template => 'pins/pincss.css.erb' }
 end
 end
 def edit
-  @pin = Pin.find(params[:id])
+	@pin = Pin.find(params[:id])
 end
 
 def new
@@ -49,20 +50,20 @@ def create
 end
 
 def update
-  @pin = Pin.find(params[:id])
- 
-  if @pin.update(pin_params)
-    redirect_to @pin
-  else
-    render 'edit'
-  end
+	@pin = Pin.find(params[:id])
+
+	if @pin.update(pin_params)
+		redirect_to @pin
+	else
+		render 'edit'
+	end
 end
 
-  def destroy
-    @pin = Pin.find(pin_params)
-    @pin.destroy
-    redirect_to pins_url, notice: "Successfully destroyed pin."
-  end
+def destroy
+	@pin = Pin.find(pin_params)
+	@pin.destroy
+	redirect_to pins_url, notice: "Successfully destroyed pin."
+end
 
 private 
 

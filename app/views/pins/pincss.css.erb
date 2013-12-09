@@ -1,0 +1,25 @@
+.px-pin-setting{
+	width: <%= @pin.width %>px;
+	height: <%= @pin.height %>px;
+	background-repeat: repeat;
+	border: 2px solid #333333;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 0;
+}
+<% @pin.pinimages.each do |pinimage| %>
+#img_<%= pinimage.id %>{
+	top:<%= pinimage.formcss.top %>px;
+	left:<%= pinimage.formcss.left %>px;
+	width:<%= pinimage.formcss.width %>px;
+	height:<%= pinimage.formcss.height %>px;
+	position:absolute;
+
+}
+
+
+<%end%>
