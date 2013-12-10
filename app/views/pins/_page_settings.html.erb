@@ -1,0 +1,64 @@
+<fieldset>
+  <legend>Page Settings</legend>
+  <div class='row'>
+    <div class='col-sm-12'>
+      <div class='form-group'>
+        <%= f.label :title,:for=>"pin_title"%>
+        <%= f.text_field :title,:class=>"form-control"  %>
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-sm-12'>
+      <div class='form-group'>
+        <label for="user_locale">Form</label>
+        <select class="form-control px-page-format"  name="user[locale]">
+          <option value="1">640x480</option>
+          <option value="2">800x600</option>
+          <option value="3">1024x768</option>
+          <option value="4">1600x1200</option>
+          <option value="5">A1</option>
+          <option value="6">A2</option>
+          <option value="7">A3</option>
+          <option value="8" selected="selected">A4</option>
+          <option value="9">A5</option>
+          <option value="10">B4</option>
+          <option value="11">B5</option>          
+          <option value="12">Custom</option></select>
+        </div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-6'>
+        <div class='form-group'>
+          <%= f.label :width %>
+          <div class="input-group">
+            <%= f.text_field :width,:class=>"form-control px-pin-size"%>
+            <span class="input-group-addon">px</span>
+          </div>
+        </div>
+      </div>
+      <div class='col-sm-6'>
+        <div class='form-group'>
+          <%= f.label :height %>
+          <div class="input-group">
+            <%= f.text_field :height,:class=>"form-control px-pin-size"%>
+            <span class="input-group-addon">px</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class='row'>
+      <div class='col-sm-12'>
+        <div class='form-group'>
+          <%= f.label :status %>
+          <%= f.select(:status, [['Public', 1], ['Privat', 2]],{},{:class=>"form-control"}) %>
+
+        </div>
+      </div>
+    </div>
+
+
+  </fieldset>

@@ -90,6 +90,14 @@ function dynamic_added_el(){
 		click: function(e){
 			//$(this).children(".px-el-remove").css("visibility","visible");
 
+			
+			$("#element-settings-cls").empty();
+			$(this).children("fieldset").clone().prependTo("#element-settings-cl");
+			$("#element-settings-cl").find("input[type='text']").on('keyup change',function(e) {
+				$("#pin_creator_area").find("#"+this.id).val(this.value);
+			});
+
+
 			$("#pin_creator_area").find("fieldset").removeClass("px_active_el");
 			$(this).addClass("px_active_el");
 			$("#element-settings-cl").empty();
@@ -151,7 +159,7 @@ $(".px-add-img-file").on("change",function(){
 
 function px_resizable_el(){
 	$("#new_pin").find("fieldset").resizable({
-			stop: function(event, ui) {
+		stop: function(event, ui) {
 			var width = $(this).width();
 			var height = $(this).height();
 			$(this).closest("fieldset").find(".px-el-width").val(width);
@@ -208,31 +216,45 @@ $("#pin_creator_area").on("click",function() {
 	$("#element-settings-cl").find("input[type='text']").on('keyup change',function(e) {
 		$("#pin_creator_area").find("#"+this.id).val(this.value);
 	});
+
+	$(".px-page-format").on('change',function(){
+		var thisval=$(this).val();
+		//alert(thisval);
+		var width="200";
+		var height="200";
+		//alert(thisval);+#
+		$("#pin_creator_area").find('.px-page-format option').attr('selected', false);
+
+		$(this).find('option[value="'+thisval+'"]').attr('selected', true);
+		
+		$("#pin_creator_area").find('.px-page-format option[value="'+thisval+'"]').attr('selected', true);
+
+		if(thisval==1){width="640"; height="480"}
+		if(thisval==2){width="800"; height="600"}
+		if(thisval==3){width="1024"; height="768"}
+		if(thisval==4){width="1600"; height="1200"}
+
+		$("#pin_creator_area").css("width",width).css("height",height);
+		$(".px-pin-size#pin_width").val(width);
+		$(".px-pin-size#pin_height").val(height);
+		
+
+	})
 	$("#element-settings-cl").find(".hidden").removeClass("hidden");
 	$("#pin_creator_area").find("fieldset").removeClass("px_active_el");
 	$("#pin_creator_area").find(".px-el-remove").css("visibility","hidden");
+
+	$(".px-pin-size").on("change",function(){
+		width=$("#pin_width").val();
+		height=$("#pin_height").val();
+		$("#pin_creator_area").css("width",width).css("height",height);
+		$('.px-page-format option').attr('selected', false);
+		$('.px-page-format option[value="12"]').attr('selected', true);
+
+	})
+
 });
 $("#pin_creator_area").trigger("click");
 
-
-// $("#pin_creator_area").on("mouseover",function(){
-
-
-// });
-
-$(".px-pin-size").on("change",function(){
-	width=$("#pin_width").val();
-	height=$("#pin_height").val();
-	$("#pin_creator_area").css("width",width).css("height",height);
-})
-
-
-$("#new_pin").children("fieldset").on("click",function(){
-	$("#element-settings-cls").empty();
-	$(this).children("fieldset").clone().prependTo("#element-settings-cl");
-	$("#element-settings-cl").find("input[type='text']").on('keyup change',function(e) {
-		$("#pin_creator_area").find("#"+this.id).val(this.value);
-	});
-})
 
 });
