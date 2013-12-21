@@ -34,7 +34,7 @@
     <%= f.fields_for :pinimages do |builder| %>
     <%= render 'pinimage_fields', f: builder %>
     <% end %>
-    <%= link_to_add_fields "Add text", f, :pinimages, "add_pin_pinimages" %>
+    <%= link_to_add_fields "Add img", f, :pinimages, "add_pin_pinimages" %>
 
     <div class="actions">
       <%= f.submit :class=>"px-real-submit hidden"  %>

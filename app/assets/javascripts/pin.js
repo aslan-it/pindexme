@@ -28,11 +28,20 @@ $(document).on('change keydown keypress input', 'div[data-placeholder]', functio
 		delete(this.dataset.divPlaceholderContent);
 	}
 });
+
 /////////////////////////////////////////////////////////
 //////NESTED DYNMAIC FORM////////////////////////////
 $('form').on('click', '.remove_fields', function(event) {
 	$(this).prev('input[type=hidden]').val('1');
 	$(this).closest('fieldset').hide();
+	
+	this_class=$(this).closest("fieldset").attr('class').split(' ')[0];
+
+	if (this_class=="px-eltarea-field"){
+		count=$("#r_add_pin_eltareas").attr("data-count");
+		$("#r_add_pin_eltareas").attr("data-count",--count)
+		
+	}
 	return event.preventDefault();
 
 
@@ -43,14 +52,34 @@ $('form').on('click', '.add_fields', function(event) {
 	time = new Date().getTime();
 	regexp = new RegExp($(this).data('id'), 'g');
 	$(this).before($(this).data('fields').replace(regexp, time));
+	$("#new_pin").children("fieldset").last().attr("class");
 	event.preventDefault();
+	//$("#new_pin").children("fieldset").addClass(time);
+	this_id=$(this).attr("id");
+	if (this_id=="add_pin_pinimages"){
+		$("#new_pin").find(".px-image-field").last().attr("id",time);
+	}
+
+	if (this_id=="add_pin_eltareas"){
+		//count=$("#r_add_pin_eltareas").attr("data-count");
+		//$("#r_add_pin_eltareas").attr("data-count",++count);
+		$("#new_pin").find(".px-eltarea-field").last().attr("id",time);
+	}
+	if (this_id=="add_pin_eltexts"){
+		
+	}
 
 });
 ////////////////////////////////////////////////////////
 
 //bunlar birlestitilcek split yapilip basa r eklencek
-$( "#r_add_pin_pinimages" ).on('click', function() {
+$( "#r_add_pin_pinimages" ).on('click', function(e) {
 	$("#add_pin_pinimages").trigger( "click" );
+	$("#element-settings-cl").empty();
+	$("#new_pin").children("fieldset").last(".px-image-field").clone().prependTo("#element-settings-cl");
+	//e.stopPropagation();
+	$("#element-settings-cl").find(".hidden").removeClass("hidden");
+
 })
 
 $( "#r_add_pin_eltareas" ).on('click', function() {
@@ -61,7 +90,7 @@ $( "#r_add_pin_eltareas" ).on('click', function() {
 })
 
 $( "#r_add_pin_eltexts" ).on('click', function() {
-	$("#add_pin_eltexts").trigger( "click" );
+	//$("#add_pin_eltexts").trigger( "click" );
 });
 
 $(".px-remote-submit").click(function(){
@@ -75,7 +104,7 @@ function dynamic_added_el(){
 	$("#pin_creator_area").find("fieldset").on({
 		mouseenter: function () {
 
-			$( this ).css("border", "1px solid black" );
+			$(this).css("border", "1px solid black" );
 			$(this).children(".px-el-remove").css("visibility","visible");
 			$(this).draggable({disabled:false});
 
@@ -91,23 +120,29 @@ function dynamic_added_el(){
 			//$(this).children(".px-el-remove").css("visibility","visible");
 
 			
-			$("#element-settings-cls").empty();
+			//$("#element-settings-cls").empty();
+			//$(this).children(".px-image-field").clone().prependTo("#element-settings-cl");
+
+			//$(this).children("fieldset").clone().prependTo("#element-settings-cl");
+			
+
+			$("#pin_creator_area").find("fieldset").removeClass("px_active_el");
+			$(this).addClass("px_active_el");
+
+			$("#element-settings-cl").empty();
 			$(this).children("fieldset").clone().prependTo("#element-settings-cl");
+			$(this).children(".px-el-attr").clone().prependTo("#element-settings-cl");
 			$("#element-settings-cl").find("input[type='text']").on('keyup change',function(e) {
 				$("#pin_creator_area").find("#"+this.id).val(this.value);
 			});
 
-
-			$("#pin_creator_area").find("fieldset").removeClass("px_active_el");
-			$(this).addClass("px_active_el");
-			$("#element-settings-cl").empty();
-			$(this).find("fieldset").clone().prependTo("#element-settings-cl");
+			
 			$("#element-settings-cl").find(".hidden").removeClass("hidden");
 			$("#pin_creator_area").find(".px-el-remove").css("visibility","hidden");
 			$(this).children(".px-el-remove").css("visibility","visible");
 			// $(this).draggable({disabled:true});
 			// $(this).removeClass(' ui-draggable-disabled ui-state-disabled');
-			e.stopPropagation();
+			//e.stopPropagation();
 
 		},
 		dblclick: function(e){
@@ -122,7 +157,9 @@ function dynamic_added_el(){
 	});
 
 $(".px-r-add-img").on("click",function(){
-	$(this).closest("fieldset").find(".px-add-img-file").trigger("click")
+	this_id=$(this).closest("fieldset").attr("id");
+
+	$("#new_pin").find("#"+this_id).find(".px-add-img-file").trigger("click");
 
 })
 
@@ -140,21 +177,42 @@ $(".px-add-img-file").on("change",function(){
 		$(".px-r-add-img").hide();
 	}
 
+	//var img = document.createElement("fielsted");
 	var img = document.createElement("img");
 	img.classList.add("px-resizable-el");
 	img.file = file;
-	img.width=200;
 
+	img.width=$("#pin_creator_area").width()/10;
 
-	$(this).closest("fieldset").append(img);
 
 	var reader = new FileReader();
 	reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
 	reader.readAsDataURL(file);
 
+	$("#new_pin").find("#"+$(this).attr("id")).closest(".px-image-field").append(img);
+	//$("#new_pin").append(img);
+	px_resizable_img();
+	px_draggable_el();
+
 })	
 }
 ///////////////////dynamic_added_el//////////////
+
+function px_resizable_img(){
+	//width=$("#pin_creator_area").height();
+	//$(".px-resizable-el").height(width/10);
+	$("#new_pin").find(".px-resizable-el").resizable({
+		stop: function(event, ui) {
+			var width = $(this).width();
+			var height = $(this).height();
+			$(this).closest("fieldset").find(".px-el-width").val(width);
+			$(this).closest("fieldset").find(".px-el-height").val(height);
+			
+		}
+
+	});
+
+}
 
 
 function px_resizable_el(){
@@ -168,6 +226,12 @@ function px_resizable_el(){
 		}
 
 	});
+
+	$(".px-editable-tarea").on('keydown',function(){
+		height=$(this).height();
+		$(this).closest("fieldset").height(height);
+
+	})
 }
 function px_draggable_el(){
 	$("#new_pin").find("fieldset").draggable({
@@ -196,6 +260,7 @@ $("#px-add-el-nav").find("button").on({
 		dynamic_added_el();
 		px_resizable_el();
 		px_draggable_el();
+
 	},
 
 	mouseenter: function(){
@@ -238,7 +303,6 @@ $("#pin_creator_area").on("click",function() {
 		$(".px-pin-size#pin_width").val(width);
 		$(".px-pin-size#pin_height").val(height);
 		
-
 	})
 	$("#element-settings-cl").find(".hidden").removeClass("hidden");
 	$("#pin_creator_area").find("fieldset").removeClass("px_active_el");
@@ -250,11 +314,8 @@ $("#pin_creator_area").on("click",function() {
 		$("#pin_creator_area").css("width",width).css("height",height);
 		$('.px-page-format option').attr('selected', false);
 		$('.px-page-format option[value="12"]').attr('selected', true);
-
 	})
-
 });
 $("#pin_creator_area").trigger("click");
-
 
 });

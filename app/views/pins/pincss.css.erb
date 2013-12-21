@@ -23,3 +23,15 @@
 
 
 <%end%>
+<% @pin.eltareas.each do |eltarea| %>
+#eltarea_<%= eltarea.id %>{
+	top:<%= eltarea.formcss.top %>px;
+	left:<%= eltarea.formcss.left %>px;
+	width:<%= eltarea.formcss.width %>px;
+	height:<%= eltarea.formcss.height %>px;
+	position:absolute;
+
+}
+
+
+<%end%>

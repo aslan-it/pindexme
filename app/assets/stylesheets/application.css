@@ -107,8 +107,12 @@ fieldset{
 	position: absolute;
 }
 
+.px-resizable-el{
 
-
+}
+.hidden_2{
+	display: none;
+}
  /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 

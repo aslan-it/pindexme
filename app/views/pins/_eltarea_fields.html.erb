@@ -5,7 +5,7 @@
   <% end %>
   <%#= link_to "remove", '#', class: "remove_fields" %>
   <div class="px-editable-tarea px-resizable-el" style="width:auto; height:auto" data-placeholder='Enter some text' contenteditable='true'></div>
-  <%= f.text_field :textarea, :class => "px-eltarea-hidden-field" %><br />
+  <%= f.hidden_field :textarea, :class => "px-eltarea-hidden-field" %><br />
   <%= f.hidden_field :_destroy %>
 
 
