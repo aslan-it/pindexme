@@ -3,6 +3,7 @@ Pindexme::Application.routes.draw do
  # get "pins/index"
   root 'home#index'
   resources :pins
+  resources :pinboards
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

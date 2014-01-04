@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag  pin_path :format=>"css" %>
+
+
+        <% @pin.eltareas.each do |eltarea|%>
+        <div id="eltarea_<%=eltarea.id%>">
+
+          <%= eltarea.textarea.html_safe %>
+      
+        </div>
+    
+          
+
+      
+        
+
+        <% end %>
+
+
+
+        <% @pin.pinimages.each do |pinimage| %>
+        <div >
+          <%= image_tag pinimage.image_url.to_s, :id=>"img_"+pinimage.id.to_s %>
+        </div>
+
+
+        <% end %>
+
+  

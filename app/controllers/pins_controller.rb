@@ -18,6 +18,9 @@ def show
 format.html # show.html.erb
 format.json { render json: @pin }
 format.css { render css: @pin, :template => 'pins/pincss.css.erb' }
+format.pdf do
+	render :pdf => "file_name"
+end
 end
 end
 def edit

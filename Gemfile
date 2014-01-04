@@ -43,6 +43,8 @@ gem 'jquery-ui-rails'
 gem 'carrierwave'
 gem "mini_magick"
 gem 'tinymce-rails'
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
