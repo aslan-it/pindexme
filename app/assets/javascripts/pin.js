@@ -64,6 +64,12 @@ $('form').on('click', '.add_fields', function(event) {
 		//count=$("#r_add_pin_eltareas").attr("data-count");
 		//$("#r_add_pin_eltareas").attr("data-count",++count);
 		$("#new_pin").find(".px-eltarea-field").last().attr("id",time);
+
+		CKEDITOR.replace( 'editor1', {
+toolbar: 'Basic',
+
+});
+
 	}
 	if (this_id=="add_pin_eltexts"){
 		

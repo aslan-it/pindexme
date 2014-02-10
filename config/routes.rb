@@ -1,4 +1,5 @@
 Pindexme::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :users
  # get "pins/index"
   root 'home#index'
