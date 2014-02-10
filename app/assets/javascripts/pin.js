@@ -118,13 +118,11 @@ function dynamic_added_el(){
 		},
 		click: function(e){
 			//$(this).children(".px-el-remove").css("visibility","visible");
-
 			
 			//$("#element-settings-cls").empty();
 			//$(this).children(".px-image-field").clone().prependTo("#element-settings-cl");
 
-			//$(this).children("fieldset").clone().prependTo("#element-settings-cl");
-			
+			//$(this).children("fieldset").clone().prependTo("#element-settings-cl");			
 
 			$("#pin_creator_area").find("fieldset").removeClass("px_active_el");
 			$(this).addClass("px_active_el");
@@ -135,7 +133,6 @@ function dynamic_added_el(){
 			$("#element-settings-cl").find("input[type='text']").on('keyup change',function(e) {
 				$("#pin_creator_area").find("#"+this.id).val(this.value);
 			});
-
 			
 			$("#element-settings-cl").find(".hidden").removeClass("hidden");
 			$("#pin_creator_area").find(".px-el-remove").css("visibility","hidden");
@@ -251,7 +248,6 @@ function px_draggable_el(){
 		});
 
 }
-
 
 //NAVBAR BUTTONS////////////////////////////////////
 $("#px-add-el-nav").find("button").on({

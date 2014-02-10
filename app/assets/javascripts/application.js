@@ -18,6 +18,7 @@
 //= require jquery.ui.all
 
 
+
 $( document ).ready(function() {
 // Handler for .ready() called.
 
