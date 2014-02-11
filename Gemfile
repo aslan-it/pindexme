@@ -42,7 +42,6 @@ gem 'cancan'
 gem 'jquery-ui-rails'
 gem 'carrierwave'
 gem "mini_magick"
-gem 'tinymce-rails'
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
 

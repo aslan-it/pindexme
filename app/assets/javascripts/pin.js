@@ -56,6 +56,7 @@ $('form').on('click', '.add_fields', function(event) {
 	event.preventDefault();
 	//$("#new_pin").children("fieldset").addClass(time);
 	this_id=$(this).attr("id");
+
 	if (this_id=="add_pin_pinimages"){
 		$("#new_pin").find(".px-image-field").last().attr("id",time);
 	}
@@ -64,6 +65,8 @@ $('form').on('click', '.add_fields', function(event) {
 		//count=$("#r_add_pin_eltareas").attr("data-count");
 		//$("#r_add_pin_eltareas").attr("data-count",++count);
 		$("#new_pin").find(".px-eltarea-field").last().attr("id",time);
+		//alert($("#new_pin").find(".px-eltarea-field").last().attr("id"));
+
 	}
 	if (this_id=="add_pin_eltexts"){
 		
@@ -84,9 +87,21 @@ $( "#r_add_pin_pinimages" ).on('click', function(e) {
 
 $( "#r_add_pin_eltareas" ).on('click', function() {
 	$("#add_pin_eltareas").trigger( "click" );
-	$("#new_pin").on('change keydown keypress input','.px-editable-tarea ',function(){
-		$(this).closest("fieldset").find(".px-eltarea-hidden-field").val($(this).html());
-	})
+
+	//$("#new_pin").on('change keydown keypress input','.px-editable-tarea ',function(){
+	//	$(this).closest("fieldset").find(".px-eltarea-hidden-field").val($(this).html());
+	//})
+
+	var editor = new wysihtml5.Editor("wysihtml5-textarea", { // id of textarea element
+		toolbar:      "wysihtml5-toolbar", // id of toolbar element
+		parserRules:  wysihtml5ParserRules // defined in parser rules set 
+	});
+	var editor = new wysihtml5.Editor("wysihtml5-textarea1", { // id of textarea element
+		toolbar:      "wysihtml5-toolbar", // id of toolbar element
+		parserRules:  wysihtml5ParserRules // defined in parser rules set 
+	});
+
+
 })
 
 $( "#r_add_pin_eltexts" ).on('click', function() {
@@ -171,7 +186,7 @@ $(".px-add-img-file").on("change",function(){
 	var imageType = /image.*/;
 
 	if (!file.type.match(imageType)) {
-		alert("only image");
+		alert("only image pls!");
 	}
 	else{
 		$(".px-r-add-img").hide();
@@ -278,6 +293,7 @@ $("#px-add-el-nav").find("button").on({
 $("#pin_creator_area").on("click",function() {
 	$("#element-settings-cl").empty();
 	$("#pin_title").closest(".px-pin-field").clone(false).prependTo("#element-settings-cl");
+
 	$("#element-settings-cl").find("input[type='text']").on('keyup change',function(e) {
 		$("#pin_creator_area").find("#"+this.id).val(this.value);
 	});
