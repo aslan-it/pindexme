@@ -16,6 +16,7 @@
 //= require_tree .
 //= require bootstrap
 //= require jquery.ui.all
+//= require jquery.turbolinks
 
 
 $( document ).ready(function() {

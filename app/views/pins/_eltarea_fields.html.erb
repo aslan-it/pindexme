@@ -2,38 +2,36 @@
 <fieldset class="px-eltarea-field">
 
 
-<div id="wysihtml5-toolbar" style="display: none;">
-  <a data-wysihtml5-command="bold">bold</a>
-  <a data-wysihtml5-command="italic">italic</a>
-  
-  <!-- Some wysihtml5 commands require extra parameters -->
-  <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="red">red</a>
-  <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="green">green</a>
-  <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="blue">blue</a>
-  
-  <!-- Some wysihtml5 commands like 'createLink' require extra paramaters specified by the user (eg. href) -->
-  <a data-wysihtml5-command="createLink">insert link</a>
-  <div data-wysihtml5-dialog="createLink" style="display: none;">
-    <label>
-      Link:
-      <input data-wysihtml5-dialog-field="href" value="http://" class="text">
-    </label>
-    <a data-wysihtml5-dialog-action="save">OK</a> <a data-wysihtml5-dialog-action="cancel">Cancel</a>
+  <div class="wysihtml5-toolbar clone-to-r" style="display: none;">
+    <a data-wysihtml5-command="bold">bold</a>
+    <a data-wysihtml5-command="italic">italic</a>
+    
+    <!-- Some wysihtml5 commands require extra parameters -->
+    <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="red">red</a>
+    <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="green">green</a>
+    <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="blue">blue</a>
+    
+    <!-- Some wysihtml5 commands like 'createLink' require extra paramaters specified by the user (eg. href) -->
+    <a data-wysihtml5-command="createLink">insert link</a>
+    <div data-wysihtml5-dialog="createLink" style="display: none;">
+      <label>
+        Link:
+        <input data-wysihtml5-dialog-field="href" value="http://" class="text">
+      </label>
+      <a data-wysihtml5-dialog-action="save">OK</a> <a data-wysihtml5-dialog-action="cancel">Cancel</a>
+    </div>
   </div>
-</div>
 
 
 
   <%= button_tag(type: "button", class: "remove_fields btn btn-default btn-xs px-el-remove") do %><i class="glyphicon glyphicon-remove"></i>
   <% end %>
+
   <%#= link_to "remove", '#', class: "remove_fields" %>
-  <div class="px-editable-tarea px-resizable-el" style="width:auto; height:auto" data-placeholder='Enter some text' contenteditable='true'></div>
 
-  <form><textarea id="wysihtml5-textarea" placeholder="Enter your text ..." autofocus></textarea></form>
-  <form><textarea id="wysihtml5-textarea1" placeholder="Enter your tex1t ..." autofocus></textarea></form>
-  <%= f.hidden_field :textarea, :class => "px-eltarea-hidden-field" %><br />
+
+  <%= f.text_area :textarea, :class => "px-eltarea-hidden-field" %><br />
   <%= f.hidden_field :_destroy %>
-
 
 
   <%= f.fields_for :pincsses do |builder| %>
