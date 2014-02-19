@@ -1,15 +1,15 @@
 #new_pin fieldset{
-	position: absolute;
-	background-color: red;
-	z-index: 11111;
+
 }
 .wysihtml5-sandbox{
 	width: 100%;
 	height: 100%;
 	border: 1px solid black;
-	background-color: black;
+
 	position: relative;
 	z-index: -1;
 
 }
-
+.wysihtml5-toolbar{
+	position: relative;
+}

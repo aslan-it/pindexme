@@ -37,10 +37,13 @@ $( document ).ready(function()
 		}
 
 		if (this_id=="add_pin_eltareas"){
+			var new_editor_id= "ei-"+time;
+			var new_toolbar_id= "ti-"+time;
+			$("#new_pin").find(".px-eltarea-field").last().attr("id",new_editor_id);
+			$("#new_pin").find(".px-eltarea-field").last().find(".wysihtml5-toolbar").attr("id",new_toolbar_id)
+			
 
-			$("#new_pin").find(".px-eltarea-field").last().attr("id",time);
-
-			toolbar_id=$("#new_pin").find(".px-eltarea-field").last().find(".wysihtml5-toolbar").attr("id",time).attr("id");	
+			toolbar_id=$("#new_pin").find(".px-eltarea-field").last().find(".wysihtml5-toolbar").attr("id");	
 			editor_id=$("#new_pin").find(".px-eltarea-field").last().find("textarea").attr("id");
 			var editor = new wysihtml5.Editor(editor_id, {
 				toolbar: toolbar_id,
@@ -50,7 +53,7 @@ $( document ).ready(function()
 			});
 
 			$("#new_pin").find("fieldset").draggable({
-		
+				iframeFix: true,
 				cancel: "text",
 				start: function (){
 					$("iframe").css('z-index', '-1');
@@ -64,13 +67,87 @@ $( document ).ready(function()
 		if (this_id=="add_pin_eltexts"){
 
 		}
+		dynamic_added_el();
+
+		event.stopPropagation();
 	});
 
 	// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-	function px_draggable_el(){
+
+	function dynamic_added_el(){
+		$("#pin_creator_area").find("fieldset").on({
+
+			mouseenter: function () {
+
+				//$(this).css("border", "1px solid black" );
+				$(this).children(".px-el-remove").css("visibility","visible");
+				//$(this).draggable({disabled:false});
+
+			},
+			mouseleave: function (e) {
+				//$( this ).css( "border","0px solid black" );
+				if (!$(this).is(".px_active_el")){
+					$(this).children(".px-el-remove").css("visibility","hidden");
+				}
+
+			},
+			click: function(e){
+				
+				
+				px_show_el_settings(e);
+				e.stopPropagation();
+				
+
+			}
+
+		});
 
 	}
+	// END : dynamic_added_el ::::::::::::::::::::::::::::::::::::
+
+	function px_show_el_settings(e){
+
+		var target = $( e.target );
+
+		field_id = target.attr("id");
+		alert(field_id);
+
+		$("#pin_creator_area").find("fieldset").removeClass("px_active_el");
+		target.addClass("px_active_el");
+
+		$("#element-settings-cl").empty();
+		target.find(".px_hidden_s").clone().prependTo("#element-settings-cl");
+		$("#element-settings-cl").find(".px_hidden_s").show();
+		target.find("fieldset").clone().prependTo("#element-settings-cl");
+		
+		target.children(".px-el-attr").clone().prependTo("#element-settings-cl");
+		$("#element-settings-cl").find("input[type='text']").on('keyup change',function(e) {
+			$("#pin_creator_area").find("#"+target.id).val(target.value);
+		});
+
+
+		$("#element-settings-cl").find(".hidden").removeClass("hidden");
+		$("#pin_creator_area").find(".px-el-remove").css("visibility","hidden");
+		target.children(".px-el-remove").css("visibility","visible");
+		//alert(field_id);
+
+		$("#element-settings-cl").find(".wysihtml5-toolbar a").on("click",function(e){
+			ei=$(this).parent().attr("id");
+			tbutton=$(this).attr("class").split(' ')[0];
+			$("#pin_creator_area").find("#"+ei).find("."+tbutton).trigger("click",function(e){
+				e.stopPropagation();
+			});
+			e.stopPropagation();
+		})
+
+
+
+		
+
+
+	}
+
 
 
 
@@ -136,7 +213,7 @@ $( document ).ready(function()
 
 	//REMOTE LINKS:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-	$("#px-add-el-nav").find("button").on("click",function(){
+	$("#px-add-el-nav").find("button").on("click",function(e){
 		r_add_id=$(this).attr("id");
 
 		if (r_add_id=="r_add_pin_eltareas") {
@@ -155,6 +232,10 @@ $( document ).ready(function()
 
 	//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+	$("#pin_creator_area").click(function(e){
+		alert("pin_creator_area");
+	})
+	
 
 
 
